@@ -12,7 +12,7 @@ diesel::table! {
         id -> Int4,
         #[max_length = 512]
         title -> Varchar,
-        cur_rev -> Int4,
+        rev_id -> Int4,
         last_touched -> Timestamptz,
     }
 }
