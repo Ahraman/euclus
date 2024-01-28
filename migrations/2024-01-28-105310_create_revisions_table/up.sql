@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS revisions (
     user_id         INTEGER
                         REFERENCES users(id)
                             ON DELETE SET NULL,
-    prev_rev        INTEGER DEFAULT NULL
+    parent_id       INTEGER DEFAULT NULL
                         REFERENCES revisions(id)
                             ON DELETE CASCADE,
     creation_time   TIMESTAMPTZ

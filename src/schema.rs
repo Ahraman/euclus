@@ -22,7 +22,7 @@ diesel::table! {
         id -> Int4,
         page_id -> Nullable<Int4>,
         user_id -> Nullable<Int4>,
-        prev_rev -> Nullable<Int4>,
+        parent_id -> Nullable<Int4>,
         creation_time -> Nullable<Timestamptz>,
     }
 }
