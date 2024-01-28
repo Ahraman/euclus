@@ -20,7 +20,7 @@ diesel::table! {
 diesel::table! {
     revisions (id) {
         id -> Int4,
-        page_id -> Nullable<Int4>,
+        page_id -> Int4,
         user_id -> Nullable<Int4>,
         parent_id -> Nullable<Int4>,
         creation_time -> Nullable<Timestamptz>,

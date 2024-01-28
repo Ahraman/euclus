@@ -2,7 +2,7 @@
 
 CREATE TABLE IF NOT EXISTS revisions (
     id              SERIAL PRIMARY KEY,
-    page_id         INTEGER
+    page_id         INTEGER NOT NULL
                         REFERENCES pages(id)
                             ON DELETE RESTRICT,
     user_id         INTEGER
