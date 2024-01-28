@@ -11,6 +11,16 @@ diesel::table! {
 }
 
 diesel::table! {
+    revisions (id) {
+        id -> Int4,
+        page_id -> Nullable<Int4>,
+        user_id -> Nullable<Int4>,
+        prev_rev -> Nullable<Int4>,
+        creation_time -> Nullable<Timestamptz>,
+    }
+}
+
+diesel::table! {
     texts (id) {
         id -> Int4,
         body -> Text,
@@ -29,8 +39,12 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(revisions -> pages (page_id));
+diesel::joinable!(revisions -> users (user_id));
+
 diesel::allow_tables_to_appear_in_same_query!(
     pages,
+    revisions,
     texts,
     users,
 );
