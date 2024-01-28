@@ -36,6 +36,14 @@ diesel::table! {
 }
 
 diesel::table! {
+    slots (rev_id, role_id) {
+        rev_id -> Int4,
+        role_id -> Int4,
+        content_id -> Nullable<Int4>,
+    }
+}
+
+diesel::table! {
     texts (id) {
         id -> Int4,
         body -> Text,
@@ -56,12 +64,16 @@ diesel::table! {
 
 diesel::joinable!(contents -> texts (text_id));
 diesel::joinable!(revisions -> users (user_id));
+diesel::joinable!(slots -> contents (content_id));
+diesel::joinable!(slots -> revisions (rev_id));
+diesel::joinable!(slots -> slot_roles (role_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
     contents,
     pages,
     revisions,
     slot_roles,
+    slots,
     texts,
     users,
 );
