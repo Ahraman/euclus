@@ -28,6 +28,14 @@ diesel::table! {
 }
 
 diesel::table! {
+    slot_roles (id) {
+        id -> Int4,
+        #[max_length = 64]
+        title -> Varchar,
+    }
+}
+
+diesel::table! {
     texts (id) {
         id -> Int4,
         body -> Text,
@@ -53,6 +61,7 @@ diesel::allow_tables_to_appear_in_same_query!(
     contents,
     pages,
     revisions,
+    slot_roles,
     texts,
     users,
 );
