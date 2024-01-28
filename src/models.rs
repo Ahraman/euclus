@@ -54,3 +54,13 @@ pub struct Slot {
     pub role_id: i32,
     pub content_id: Option<i32>,
 }
+
+#[derive(Queryable, Selectable)]
+#[diesel(table_name = crate::schema::pages)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
+pub struct Page {
+    pub id: i32,
+    pub title: String,
+    pub rev_id: i32,
+    pub last_touched: OffsetDateTime,
+}
