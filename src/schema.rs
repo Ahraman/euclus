@@ -23,7 +23,7 @@ diesel::table! {
         page_id -> Int4,
         user_id -> Nullable<Int4>,
         parent_id -> Nullable<Int4>,
-        creation_time -> Nullable<Timestamptz>,
+        submit_time -> Timestamptz,
     }
 }
 

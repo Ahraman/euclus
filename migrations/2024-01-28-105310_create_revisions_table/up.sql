@@ -11,5 +11,5 @@ CREATE TABLE IF NOT EXISTS revisions (
     parent_id       INTEGER DEFAULT NULL
                         REFERENCES revisions(id)
                             ON DELETE CASCADE,
-    creation_time   TIMESTAMPTZ
+    submit_time     TIMESTAMPTZ NOT NULL
 );
