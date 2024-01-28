@@ -1,6 +1,13 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
+    contents (id) {
+        id -> Int4,
+        text_id -> Int4,
+    }
+}
+
+diesel::table! {
     pages (id) {
         id -> Int4,
         #[max_length = 512]
@@ -39,9 +46,11 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(contents -> texts (text_id));
 diesel::joinable!(revisions -> users (user_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
+    contents,
     pages,
     revisions,
     texts,
